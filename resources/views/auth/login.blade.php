@@ -63,6 +63,13 @@
                                     </a>
                                 @endif
                             </div>
+
+                            <div class="col-md-8 offset-md-4 py-3">
+                                <p> <a href="{{route('auth.facebook')}}" class="btn btn-primary">Login with Facebook</a> </p>
+                                <p> <a href="{{route('auth.google')}}" class="btn btn-primary">Login with Google</a> </p>
+                                <p> <a href="{{route('auth.github')}}" class="btn btn-primary">Login with GitHub</a> </p>
+                            </div>
+
                         </div>
                     </form>
                 </div>

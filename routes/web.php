@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,23 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::get('auth/google',function (){
+    return Socialite::driver('google')->redirect();
+})->name('auth.google');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/auth/google/callback',function (){
+    return '<h1>Google callback </h1>';
+});
+
+Route::get('auth/facebook',function (){
+    return Socialite::driver('github')->redirect();
+})->name('auth.facebook');
+
+Route::get('/auth/facebook/callback',function (){
+    $user = Socialite::driver('google')->user();
+    dd($user);
+});
+
+Route::get('auth/github',function (){
+    $user = Socialite::driver('github')->redirect();
+})->name('auth.github');
