@@ -16,7 +16,9 @@ class UserCollection extends ResourceCollection
     {
         return [
             'data' => $this->collection,
-            'status' =>'Success'
+            'count' => $this->collection->count(),
+            'status' =>'Success',
+
         ];
     }
 }
